@@ -1,4 +1,4 @@
-def ex21(input_x):
+def exampleOne(input_x):
     if input_x == 0:
         raise ZeroDivisionError
     else:
