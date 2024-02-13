@@ -1,7 +1,3 @@
-from hroml import test
+from hroml import ex21
 
-def ex21(input_x):
-    if input_x == 0:
-        raise ZeroDivisionError
-    else:
-        return (1/input_x + 3*input_x)
+print("f(4) = ", ex21(4))
