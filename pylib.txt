@@ -1,0 +1,36 @@
+Create New Library
+1. Ensure in correct virtual environment
+2. install packages
+    % pip install wheel
+    % pip install setuptools
+    % pip install twine
+3. Create library structure
+    > main_library_folder
+        > library_folder
+            > __init__.py (blank)
+            > library_functions.py
+        > library_test_folder
+            > __init__.py (blank)
+            > test_library_functions.py
+        > README.md
+        > setup.py
+4. Create functions in library_functions.py
+5. Create test functions
+6. Create setup.py
+    $ from setuptools import find_packages, setup
+    $ 
+    $ setup(
+    $     name='mypythonlib',
+    $     packages=find_packages(include=['mypythonlib']),
+    $     version='0.1.0',
+    $     description='My first Python library',
+    $     author='Me',
+    $     install_requires=[],
+    $     setup_requires=['pytest-runner'],
+    $     tests_require=['pytest==4.4.1'],
+    $     test_suite='tests',
+    $ )
+7. Run test to ensure works: 
+    % python setup.py pytest
+8. Build Library: 
+    % python setup.py bdist_wheel
