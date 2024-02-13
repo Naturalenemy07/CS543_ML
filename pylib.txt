@@ -7,15 +7,15 @@ Create New Library
 3. Create library structure
     > main_library_folder
         > library_folder
-            > __init__.py (blank)
+            > __init__.py (contains "from .'function python file' import *)
             > library_functions.py
-        > library_test_folder
+        > library_test_folder (optional)
             > __init__.py (blank)
             > test_library_functions.py
         > README.md
         > setup.py
 4. Create functions in library_functions.py
-5. Create test functions
+5. Create test functions (optional)
 6. Create setup.py
     $ from setuptools import find_packages, setup
     $ 
@@ -30,7 +30,7 @@ Create New Library
     $     tests_require=['pytest==4.4.1'],
     $     test_suite='tests',
     $ )
-7. Run test to ensure works: 
+7. Run test to ensure works (optional): 
     % python setup.py pytest
 8. Build Library: 
     % python setup.py bdist_wheel
