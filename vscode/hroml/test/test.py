@@ -1,3 +1,3 @@
-from hroml import ex21
+from myfunctions import ex21
 
 print("f(4) = ", ex21(4))
