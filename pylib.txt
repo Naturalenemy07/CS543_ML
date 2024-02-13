@@ -34,3 +34,5 @@ Create New Library
     % python setup.py pytest
 8. Build Library: 
     % python setup.py bdist_wheel
+9. Install the new wheel packages
+    % pip install /path/to/wheelfile.whl
