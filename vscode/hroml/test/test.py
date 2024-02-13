@@ -1,4 +1,4 @@
 import hroml
-from myfunctions import ex21
+from vscode.hroml.myfunctions import exampleOne
 
-print("f(4) = ", ex21(4))
+print("f(4) = ", exampleOne(4))
