@@ -4,4 +4,3 @@ hroml.egg-info/PKG-INFO
 hroml.egg-info/SOURCES.txt
 hroml.egg-info/dependency_links.txt
 hroml.egg-info/top_level.txt
-test/tests.py
