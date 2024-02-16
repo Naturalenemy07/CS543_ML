@@ -42,6 +42,8 @@ def exampleTwoOne(input_x:int) -> float:
     :raises ValueError: if input_x is a string
     """
 
+    __checkOne(input_x)
+
     return (1/input_x + 3*input_x)
 
 def exampleTwoSix(lower_b: int, upper_b: int) -> int:
