@@ -34,8 +34,15 @@ def exampleTwoOne(input_x:int) -> float:
     :raises ValueError: if input_x is a string
     """
 
-def dot(xi:float, w):
-    pass
+def dot(xi, w):
+    n = len(w)
+    result = 0.0
+    for j in range(n):
+        result += xi[j]*w[j]
+    return result
+
+def lin_regress(bias, w, xi):
+    return bias + dot(xi, w)
 
 def train_val_test_split(data, trainP:float, valP:float, testP:float, label:str, const = 1):
     """
