@@ -12,29 +12,7 @@ errIdx = "Upper bound index must be greater than lower bound index."
 """""""""
 Functions
 """""""""
-def __checkOne(input):
-    if input == 0:
-        raise ZeroDivisionError(errZero)
-    elif type(input) is float:
-        raise ValueError(errFlt)
-    elif type(input) is str:
-        raise ValueError(errStr)
-
-
-def exampleTwoOne(input_x:int) -> float:
-    """
-    Calculate f(x)=(1/x + 3*x) based on input x
-
-    :param int input_x: input to equation
-
-    :return: f(x)
-    :rtype: float
-
-    :raises ZeroDivisionError: if input_x is equal to zero
-    :raises ValueError: if input_x is a string
-    """
-
-def dot(xi, w):
+def mydot(xi, w):
     n = len(w)
     result = 0.0
     for j in range(n):
@@ -42,7 +20,15 @@ def dot(xi, w):
     return result
 
 def lin_regress(bias, w, xi):
-    return bias + dot(xi, w)
+    return bias + mydot(xi, w)
+
+def train_linear_regression(X, y):
+    ones = np.ones(X.shape[0])
+    X = np.column_stack([ones,X])
+    XTX = X.T.dot(X)
+    XTX_inv = np.linalg.inv(XTX)
+    w = XTX_inv.dot(X.T).dot(y)
+    return w[0], w[1:]
 
 def train_val_test_split(data, trainP:float, valP:float, testP:float, label:str, const = 1):
     """
