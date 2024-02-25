@@ -23,6 +23,8 @@ def lin_regress(bias, w, xi):
     return bias + __mydot(xi, w)
 
 def train_linear_regression(X, y):
+    print('starting regression')
+
     ones = np.ones(X.shape[0])
     print("made ones column")
 
