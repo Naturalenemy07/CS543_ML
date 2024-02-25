@@ -12,7 +12,7 @@ errIdx = "Upper bound index must be greater than lower bound index."
 """""""""
 Functions
 """""""""
-def mydot(xi, w):
+def __mydot(xi, w):
     n = len(w)
     result = 0.0
     for j in range(n):
@@ -20,14 +20,23 @@ def mydot(xi, w):
     return result
 
 def lin_regress(bias, w, xi):
-    return bias + mydot(xi, w)
+    return bias + __mydot(xi, w)
 
 def train_linear_regression(X, y):
     ones = np.ones(X.shape[0])
+    print("made ones column")
+
     X = np.column_stack([ones,X])
+    print("X with ones")
+
     XTX = X.T.dot(X)
+    print('performed dot')
+
     XTX_inv = np.linalg.inv(XTX)
+    print('performed inv')
+
     w = XTX_inv.dot(X.T).dot(y)
+    print('got weights')
     return w[0], w[1:]
 
 def train_val_test_split(data, trainP:float, valP:float, testP:float, label:str, const = 1):
