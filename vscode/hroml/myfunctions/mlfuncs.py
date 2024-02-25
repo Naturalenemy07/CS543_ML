@@ -16,12 +16,17 @@ Functions
 def lin_regress(bias, w, xi):
     return bias + xi.dot(w)
 
-def train_linear_regression(X, y):
+def train_linear_regression(X, y, r=0.0):
     ones = np.ones(X.shape[0])
     X = np.column_stack([ones,X])
+
     XTX = X.T.dot(X)
+    reg = r * np.eye(XTX.shape[0])
+    XTX = XTX + reg
+
     XTX_inv = np.linalg.inv(XTX)
     w = XTX_inv.dot(X.T).dot(y)
+    
     return w[0], w[1:]
 
 def train_val_test_split(data, trainP:float, valP:float, testP:float, label:str, const = 1):
