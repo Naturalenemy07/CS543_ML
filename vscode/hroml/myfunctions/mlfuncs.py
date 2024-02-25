@@ -23,22 +23,11 @@ def lin_regress(bias, w, xi):
     return bias + __mydot(xi, w)
 
 def train_linear_regression(X, y):
-    print('starting regression')
-
     ones = np.ones(X.shape[0])
-    print("made ones column")
-
     X = np.column_stack([ones,X])
-    print("X with ones")
-
     XTX = X.T.dot(X)
-    print('performed dot')
-
     XTX_inv = np.linalg.inv(XTX)
-    print('performed inv')
-
     w = XTX_inv.dot(X.T).dot(y)
-    print('got weights')
     return w[0], w[1:]
 
 def train_val_test_split(data, trainP:float, valP:float, testP:float, label:str, const = 1):
@@ -70,3 +59,8 @@ def train_val_test_split(data, trainP:float, valP:float, testP:float, label:str,
     data_test = data_shuffled.iloc[n_train+n_val:].copy()
 
     return data_train, data_val, data_test
+
+def rsme(y, y_pred):
+    error = y_pred - y
+    mse = (error**2).mean()
+    return np.sqrt(mse)
