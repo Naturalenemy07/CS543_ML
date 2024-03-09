@@ -1,22 +1,35 @@
 import numpy as np
 import pandas as pd
 
-"""""""""""""""
-Error messages
-"""""""""""""""
-errZero = "Cannot divide by zero."
-errStr = "String or characters cannot be input to mathematical equation, please use integer only."
-errFlt = "Cannot use float number, please use integer only."
-errIdx = "Upper bound index must be greater than lower bound index."
-
 """""""""
 Functions
 """""""""
 
 def lin_regress(bias, w, xi):
+    """
+    Calculated the linear regression line
+
+    :param float bias: intercept
+    :param vector w: features
+    :param vector xi: slopes
+
+    :return: predicted y
+    :rtype: float
+    """
     return bias + xi.dot(w)
 
+
 def train_linear_regression(X, y, r=0.0):
+    """
+    Calculated the linear regression line
+
+    :param vector X: Numpy matrix
+    :param vector y: vector
+    :param float r: number to eliminate errors in code
+
+    :return:
+    :rtype:
+    """
     ones = np.ones(X.shape[0])
     X = np.column_stack([ones,X])
 
@@ -28,6 +41,7 @@ def train_linear_regression(X, y, r=0.0):
     w = XTX_inv.dot(X.T).dot(y)
     
     return w[0], w[1:]
+
 
 def train_val_test_split(data, trainP:float, valP:float, testP:float, label:str, const = 1):
     """
@@ -59,13 +73,32 @@ def train_val_test_split(data, trainP:float, valP:float, testP:float, label:str,
 
     return data_train, data_val, data_test
 
-def rsme(y, y_pred):
+def rsme(y, y_pred)->float:
+    """
+    Calculated root mean square
+
+    :param vector y: actual 
+    :param vector y_pred: predicted
+
+
+    :return: root meas square value
+    :rtype: float
+    """
     error = y_pred - y
     mse = (error**2).mean()
     return np.sqrt(mse)
 
+
 def MLB_ch2_prepare_X(input_df, base_columns):
-    
+    """
+    Create new columns for one-hot encoding categorical data
+
+    :param Pandas Dataframe input_df: input dataframe to alter
+    :param vector base_columns: columns of interest
+
+    :return: Altered Dataframe with new columns
+    :rtype: Pandas Dataframe
+    """
     input_df = input_df.copy()
     features = base_columns.copy()
 
