@@ -69,7 +69,7 @@ def MLB_ch2_prepare_X(input_df, base_columns):
     input_df = input_df.copy()
     features = base_columns.copy()
 
-    input_df['age'] = 2017 - input_df.year
+    input_df['age'] = 2024 - input_df.year
     features.append('age')
 
     for v in [2,3,4]:
@@ -107,7 +107,7 @@ def MLB_ch2_prepare_X(input_df, base_columns):
         input_df[feature] = (input_df['vehicle_size'] == v).astype(int)
         features.append(feature)
 
-    for v in ['sedan','4dr_suv','coupe','convertible','4dr_hatchback']:
+    for v in ['sedan','4dr_suv','coupe','convertible','4dr_hatchback', 'regular_cab_pickup']:
         feature = 'is_style_%s' % v
         input_df[feature] = (input_df['vehicle_style'] == v).astype(int)
         features.append(feature)
